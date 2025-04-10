@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   include Devise::JWT::RevocationStrategies::JTIMatcher
+   has_many :job_listings, foreign_key: 'user_id'
   devise :database_authenticatable, :registerable,
         :validatable,:jwt_authenticatable, jwt_revocation_strategy: self
     validates :email, presence: true, uniqueness: true
