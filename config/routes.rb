@@ -9,6 +9,11 @@ Rails.application.routes.draw do
       sessions: 'users/sessions',
       registrations: 'users/registrations'
     }
+    namespace :api do
+      namespace :v1 do
+        resources :job_listings, only: [:index, :create, :show, :update, :destroy]
+      end
+    end
  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
