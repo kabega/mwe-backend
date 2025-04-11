@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Users::SessionsController < Devise::SessionsController
   include RackSessionsFix
   respond_to :json
@@ -9,9 +7,9 @@ class Users::SessionsController < Devise::SessionsController
   def respond_with(resource, _opts = {})
     render json: {
       status: {
-        code: 200, 
+        code: 200,
         message: 'Logged in successfully'
-      }, 
+      },
       data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
     }, status: :ok
   end
@@ -21,7 +19,7 @@ class Users::SessionsController < Devise::SessionsController
       # Successful logout
       render json: {
         status: 200,
-        message: "Logged out successfully"
+        message: 'Logged out successfully'
       }, status: :ok
     else
       # No active session found
