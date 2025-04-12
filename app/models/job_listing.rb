@@ -4,7 +4,7 @@ class JobListing < ApplicationRecord
   validates :title, :description, :status, :location, :salary, :salary_currency, :deadline, :qualifications,
             :experience, :job_type, presence: true
   validate :deadline_must_be_in_future
-  
+
   private
 
   def deadline_must_be_in_future
