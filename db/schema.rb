@@ -10,16 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_10_130527) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_12_170358) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "job_applications", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "job_listing_id", null: false
-    t.string "status"
+    t.string "status", default: "Submitted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "resume"
+    t.text "cover_letter"
     t.index ["job_listing_id"], name: "index_job_applications_on_job_listing_id"
     t.index ["user_id"], name: "index_job_applications_on_user_id"
   end
@@ -28,7 +30,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_10_130527) do
     t.string "title"
     t.text "description"
     t.string "location"
-    t.string "status"
+    t.string "status", default: "Open"
     t.string "qualifications"
     t.string "experience"
     t.integer "salary"
@@ -38,6 +40,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_10_130527) do
     t.string "job_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "employer"
+    t.integer "application_counter", default: 0
     t.index ["user_id"], name: "index_job_listings_on_user_id"
   end
 
