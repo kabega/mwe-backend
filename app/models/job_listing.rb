@@ -6,14 +6,13 @@ class JobListing < ApplicationRecord
   validate :deadline_must_be_in_future
   validates :status, inclusion: {
     in: %w[Open Closed],
-    message: "%{value} is not a valid status. Use 'Open' or 'Closed'"
+    message: "%<value>s is not a valid status. Use 'Open' or 'Closed'"
   }
   validates :salary, numericality: { greater_than: 0 }
   validates :job_type, inclusion: {
     in: %w[Full-Time Part-Time Contract],
-    message: "%{value} is not a valid job type. Use 'Full-Time', 'Part-Time', or 'Contract'"
+    message: "%<value>s is not a valid job type. Use 'Full-Time', 'Part-Time', or 'Contract'"
   }
-
 
   private
 
