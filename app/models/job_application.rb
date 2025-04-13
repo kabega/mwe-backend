@@ -6,9 +6,9 @@ class JobApplication < ApplicationRecord
   validates :cover_letter, presence: true
   validates :status, inclusion: {
     in: %w[Submitted Under Review Accepted Rejected],
-      message: "%{value} is not a valid status. Use 'Submitted', 'Under Review', 'Accepted', or 'Rejected'"
-      }
-      def applicationcounter
-        job_listing.increment!(:application_counter)
-      end
+    message: "%<value>s is not a valid status. Use 'Submitted', 'Under Review', 'Accepted', or 'Rejected'"
+  }
+  def applicationcounter
+    job_listing.increment!(:application_counter)
+  end
 end
