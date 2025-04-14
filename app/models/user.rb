@@ -2,6 +2,12 @@ class User < ApplicationRecord
   before_validation :generate_random_username, on: :create
   include Devise::JWT::RevocationStrategies::JTIMatcher
   has_many :job_listings, foreign_key: 'user_id'
+  has_many :job_applications, foreign_key: 'user_id'
+  has_many :user_roles, foreign_key: 'user_id'
+  has_many :roles, through: :user_roles
+  has_many :user_permissions, foreign_key: 'user_id'
+  has_many :permissions, through: :user_permissions
+
   devise :database_authenticatable, :registerable,
          :validatable, :jwt_authenticatable, jwt_revocation_strategy: self
   validates :email, presence: true, uniqueness: true
