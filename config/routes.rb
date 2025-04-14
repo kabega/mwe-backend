@@ -16,6 +16,10 @@ Rails.application.routes.draw do
         end
       end
     end
+    resources :groups, only:[:index,:new,:create] do
+      resources :payments, only:[:index,:new,:create]
+    end
+    # define routes for user roles
  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
