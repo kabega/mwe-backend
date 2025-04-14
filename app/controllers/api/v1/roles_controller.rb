@@ -1,3 +1,2 @@
 class RolesController < ApplicationController
-
 end

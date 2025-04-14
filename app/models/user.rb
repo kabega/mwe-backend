@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :roles, through: :user_roles
   has_many :user_permissions, foreign_key: 'user_id'
   has_many :permissions, through: :user_permissions
- 
+
   devise :database_authenticatable, :registerable,
          :validatable, :jwt_authenticatable, jwt_revocation_strategy: self
   validates :email, presence: true, uniqueness: true
