@@ -88,3 +88,7 @@ queue:
 cache:
   <<: *default
   database: mysite_production
+
+cable:
+  <<: *default
+  database: mysite_production
