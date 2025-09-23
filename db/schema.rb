@@ -10,39 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_14_180932) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_20_125928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
-  create_table "job_applications", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "job_listing_id", null: false
-    t.string "status", default: "Submitted"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "resume"
-    t.text "cover_letter"
-    t.index ["job_listing_id"], name: "index_job_applications_on_job_listing_id"
-    t.index ["user_id"], name: "index_job_applications_on_user_id"
-  end
-
-  create_table "job_listings", force: :cascade do |t|
+  create_table "news", force: :cascade do |t|
     t.string "title"
-    t.text "description"
-    t.string "location"
-    t.string "status", default: "Open"
-    t.string "qualifications"
-    t.string "experience"
-    t.integer "salary"
-    t.string "salary_currency"
-    t.datetime "deadline"
+    t.string "type"
+    t.string "photo"
+    t.string "description"
     t.bigint "user_id", null: false
-    t.string "job_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "employer"
-    t.integer "application_counter", default: 0
-    t.index ["user_id"], name: "index_job_listings_on_user_id"
+    t.index ["user_id"], name: "index_news_on_user_id"
   end
 
   create_table "permissions", force: :cascade do |t|
@@ -62,6 +42,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_14_180932) do
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "umbrellas", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,19 +85,20 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_14_180932) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "jti", null: false
+    t.bigint "umbrella_id", null: false
     t.index ["email"], name: "index_users_on_email"
     t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["umbrella_id"], name: "index_users_on_umbrella_id"
     t.index ["username"], name: "index_users_on_username"
   end
 
-  add_foreign_key "job_applications", "job_listings"
-  add_foreign_key "job_applications", "users"
-  add_foreign_key "job_listings", "users"
+  add_foreign_key "news", "users"
   add_foreign_key "role_permissions", "permissions"
   add_foreign_key "role_permissions", "roles"
   add_foreign_key "user_permissions", "permissions"
   add_foreign_key "user_permissions", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
+  add_foreign_key "users", "umbrellas"
 end
