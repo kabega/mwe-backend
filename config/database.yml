@@ -84,3 +84,7 @@ production:
 queue:
   <<: *default
   database: mysite_production
+
+cache:
+  <<: *default
+  database: mysite_production
