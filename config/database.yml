@@ -80,3 +80,7 @@ test:
 production:
   <<: *default
   database: mysite_production
+
+queue:
+  <<: *default
+  database: mysite_production
