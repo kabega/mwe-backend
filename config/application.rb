@@ -28,5 +28,12 @@ module MutoConsults
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Ensure that the seeds are run on application startup to create essential records
+    # such as default admin user, roles, and permissions.
+    config.after_initialize do
+      Rails.logger.info "Running startup seeds..."
+      load Rails.root.join("db/seeds.rb")
+    end
   end
 end

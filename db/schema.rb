@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_20_125928) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_29_040327) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "news", force: :cascade do |t|
     t.string "title"
-    t.string "type"
+    t.string "news_type"
     t.string "photo"
     t.string "description"
     t.bigint "user_id", null: false
