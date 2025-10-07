@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-origins ["https://unified-whisper-mail.onrender.com", "http://localhost:8080","https://complete-umbrella-website.onrender.com"]
+origins ["https://unified-whisper-mail.onrender.com", "http://localhost:8080","https://complete-umbrella-website.onrender.com","http://localhost:5174"]
 
     resource "*",
       headers: :any,
