@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       namespace :v1 do
         resources :news
         resources :umbrellas
+        resources :events
       end
     end
     # define routes for user roles
