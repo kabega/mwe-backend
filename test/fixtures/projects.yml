@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  department: MyString
+  description: MyText
+  objective: MyText
+  project_manager: MyString
+  location: MyString
+  start_date: 2025-10-16
+  end_date: 2025-10-16
+  status: MyString
+  priority: MyString
+  budget: 9.99
+
+two:
+  title: MyString
+  department: MyString
+  description: MyText
+  objective: MyText
+  project_manager: MyString
+  location: MyString
+  start_date: 2025-10-16
+  end_date: 2025-10-16
+  status: MyString
+  priority: MyString
+  budget: 9.99

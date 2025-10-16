@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_title: MyString
+  department: MyString
+  job_description: MyText
+  job_type: MyString
+  level: MyString
+  status: MyString
+  location: MyString
+  salary_range: MyString
+  requirements: MyText
+  responsibilities: MyText
+  application_deadline: 2025-10-16
+  contact_email: MyString
+
+two:
+  job_title: MyString
+  department: MyString
+  job_description: MyText
+  job_type: MyString
+  level: MyString
+  status: MyString
+  location: MyString
+  salary_range: MyString
+  requirements: MyText
+  responsibilities: MyText
+  application_deadline: 2025-10-16
+  contact_email: MyString

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_10_160153) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_16_014055) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -44,7 +44,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_10_160153) do
 
   create_table "bids", force: :cascade do |t|
     t.string "title"
-    t.string "type"
+    t.string "bid_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,6 +64,23 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_10_160153) do
     t.string "photo"
   end
 
+  create_table "jobs_and_careers", force: :cascade do |t|
+    t.string "job_title"
+    t.string "department"
+    t.text "job_description"
+    t.string "job_type"
+    t.string "level"
+    t.string "status"
+    t.string "location"
+    t.string "salary_range"
+    t.text "requirements"
+    t.text "responsibilities"
+    t.date "application_deadline"
+    t.string "contact_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "news", force: :cascade do |t|
     t.string "title"
     t.string "news_type"
@@ -77,6 +94,22 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_10_160153) do
 
   create_table "permissions", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "title"
+    t.string "department"
+    t.text "description"
+    t.text "objective"
+    t.string "project_manager"
+    t.string "location"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "status"
+    t.string "priority"
+    t.decimal "budget", precision: 15, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

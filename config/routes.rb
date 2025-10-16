@@ -14,6 +14,13 @@ Rails.application.routes.draw do
         resources :news
         resources :umbrellas
         resources :events
+        resources :bids
+        resources :projects
+        resources :jobs_and_careers do
+          collection do
+            get :active
+          end
+        end
       end
     end
     # define routes for user roles
